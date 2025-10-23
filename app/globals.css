@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #5d89ee;
+    --background-light: #f6f6f8;
+    --background-dark: #111621;
+  }
+  
+  body {
+    @apply font-display antialiased;
+    @apply bg-background-light dark:bg-background-dark;
+  }
+}
+
+@layer components {
+  .calculator-grid {
+    @apply grid grid-cols-6 gap-3;
+  }
+  
+  .calculator-container {
+    @apply w-full max-w-xl mx-auto p-4;
+    @apply bg-white dark:bg-zinc-900/50;
+    @apply shadow-lg rounded-xl;
+    @apply space-y-4;
+  }
+  
+  .calculator-button {
+    @apply flex min-w-0 max-w-full;
+    @apply cursor-pointer items-center justify-center;
+    @apply overflow-hidden rounded-lg h-14 px-4;
+    @apply text-base font-medium;
+    @apply shadow-sm;
+    @apply transition-colors duration-200;
+  }
+  
+  .calculator-button-number {
+    @apply calculator-button;
+    @apply bg-white dark:bg-zinc-700;
+    @apply text-zinc-800 dark:text-white text-xl;
+    @apply hover:bg-zinc-100 dark:hover:bg-zinc-600;
+  }
+  
+  .calculator-button-operator {
+    @apply calculator-button;
+    @apply bg-background-light dark:bg-zinc-800;
+    @apply text-primary dark:text-primary text-xl;
+    @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+  }
+  
+  .calculator-button-function {
+    @apply calculator-button;
+    @apply bg-background-light dark:bg-zinc-800;
+    @apply text-zinc-800 dark:text-white;
+    @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+  }
+  
+  .calculator-button-control {
+    @apply calculator-button;
+    @apply bg-background-light dark:bg-zinc-800;
+    @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+  }
+  
+  .calculator-button-equals {
+    @apply calculator-button;
+    @apply bg-primary text-white text-2xl;
+    @apply hover:bg-primary/90;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
