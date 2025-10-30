@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({ 
@@ -97,6 +98,11 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen flex items-center justify-center">
         {children}
+        <Script
+          defer
+          data-domain="bestcalculator.im"
+          src="https://p.studyx.ai/js/script.js"
+        />
       </body>
     </html>
   )
